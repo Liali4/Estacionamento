@@ -9,7 +9,11 @@ class Carro extends Veiculo{
         return horas * 12.00;
 }
 
-public double calcularValor(int horas) {//calculo por hora
-        return horas * 12.00;
+    public void exibirInfo(int horas) {
+        System.out.printf("Tipo: %s | Modelo: %s | Placa: %s | Valor (%dh): R$ %.2f%n",
+                tipo, modelo, placa, horas, calcularValor(horas));
+    }
+    public String getTipo() {
+        return "Carro";
     }
 }
