@@ -1,0 +1,63 @@
+/*
+São 3 arquivos para mexer: Caminhonete.java, Vaga.java e Veiculo.java.
+
+1. Caminhonete.java
+
+Troque tudo a partir do método exibirInfo até o final do arquivo por isto:
+
+java
+    public void exibirInfo(int horas) {
+        System.out.printf("Tipo: %s | Modelo: %s | Placa: %s | Valor (%dh): R$ %.2f%n",
+                getTipo(), modelo, placa, horas, calcularValor(horas));
+    }
+
+    public String getTipo() {
+        return "Caminhonete";
+    }
+}
+
+O que mudou:
+
+tipo virou getTipo() dentro do printf.
+O } que fecha o exibirInfo agora vem antes do getTipo().
+Sobrou só um } no final, o da classe.
+2. Vaga.java
+
+Adicione este construtor acima do construtor que já existe. O antigo Vaga(int numero, Veiculo veiculo) continua lá:
+
+java
+    public Vaga(int numero){
+        this.numero = numero;
+        this.veiculo = null;
+    }
+3. Veiculo.java (bug da placa em minúsculas)
+
+No construtor, troque:
+
+java
+        this.placa=placa;
+
+por:
+
+java
+        this.placa=placa.trim().toUpperCase();
+
+E no setPlaca, troque:
+
+java
+        this.placa=placa;
+
+por:
+
+java
+        this.placa=placa.trim().toUpperCase();
+
+Agora a placa é sempre guardada em maiúsculas. A saída, a consulta e a checagem de placa duplicada passam a funcionar mesmo que o usuário digite abc1234.
+
+Opcionais (não impedem de rodar)
+Em RegistroVeiculos.java, renomeie public void getVaga(Vaga vaga) para public void setVaga(Vaga vaga).
+Em Vaga.java, no construtor Vaga(int numero, Veiculo veiculo), troque this.veiculo = null; por this.veiculo = veiculo;.
+Apague o arquivo Calculavel.class da pasta, porque ele é gerado na compilação.
+
+Depois de salvar, compile com javac *.java e rode com java Main.
+*/

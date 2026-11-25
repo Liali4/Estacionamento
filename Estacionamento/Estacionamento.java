@@ -12,7 +12,7 @@ class Estacionamento {
     private List<Veiculo> veiculos;
 
     private DateTimeFormatter formato =
-        DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        DateTimeFormatter.ofPattern("\ndd/MM/yyyy HH:mm:ss");
 
     public Estacionamento(int quantidadeVagas) {
 
@@ -41,7 +41,7 @@ class Estacionamento {
                 registro.getVeiculo().getPlaca().equals(placa)) {
 
                 System.out.println(
-                    "Erro: este veiculo ja esta estacionado!"
+                    "\nErro: este veiculo ja esta estacionado!"
                 );
 
                 return;
@@ -82,14 +82,14 @@ class Estacionamento {
 
                 historico.add(registro);
 
-                System.out.println("\nVeiculo registrado com sucesso!");
+                System.out.println("\n\nVeiculo registrado com sucesso!");
 
                 System.out.println(
-                    "Vaga ocupada: " + vaga.getNumero()
+                    "\nVaga ocupada: " + vaga.getNumero()
                 );
 
                 System.out.println(
-                    "Horario de entrada: " +
+                    "\nHorario de entrada: " +
                     registro.getEntrada().format(formato)
                 );
 
@@ -97,8 +97,8 @@ class Estacionamento {
             }
         }
 
-        System.out.println("\nEstacionamento lotado!");
-        System.out.println("Nao existem vagas disponiveis.");
+        System.out.println("\n\nEstacionamento lotado!");
+        System.out.println("\n\nNao existem vagas disponiveis.");
     }
 
     // --------------------------------------
@@ -118,51 +118,49 @@ class Estacionamento {
 
                 registro.getVaga().liberar();
 
-                System.out.println("\nSaida registrada com sucesso!");
+                System.out.println("\n\nSaida registrada com sucesso!");
 
                 System.out.println(
-                    "Veiculo: " +
+                    "\nVeiculo: " +
                     registro.getVeiculo().getModelo()
                 );
 
                 System.out.println(
-                    "Horario de entrada: " +
+                    "\nHorario de entrada: " +
                     registro.getEntrada().format(formato)
                 );
 
                 System.out.println(
-                    "Horario de saida: " +
+                    "\nHorario de saida: " +
                     registro.getSaida().format(formato)
                 );
 
                 System.out.println(
-                    "Tempo de permanencia: " +
-                    registro.getPermanencia() + " minutos"
+                    "\nTempo de permanencia: " +
+                    registro.getPermanencia() + "\n minutos"
                 );
 
                 System.out.println(
-                    "Horas cobradas: " +
+                    "\nHoras cobradas: " +
                     registro.getHorasCobradas()
                 );
 
                 System.out.printf(
-                    Locale.forLanguageTag("pt-BR"),
-                    "Valor: R$ %.2f%n",
+                    Locale.forLanguageTag("\npt-BR"),
+                    "\nValor: R$ %.2f%n",
                     registro.getValor()
                 );
 
                 System.out.println(
-                    "Vaga " + registro.getVaga().getNumero() +
-                    " liberada com sucesso!"
+                    "\nVaga " + registro.getVaga().getNumero() +
+                    " \nliberada com sucesso!"
                 );
 
                 return;
             }
         }
 
-        System.out.println(
-            "Erro: veiculo nao encontrado no estacionamento!"
-        );
+        System.out.println("\n\nErro: veiculo nao encontrado no estacionamento!" );
     }
 
     // --------------------------------------
@@ -171,21 +169,21 @@ class Estacionamento {
 
     public void vagas() {
 
-        System.out.println("\n--- SITUACAO DAS VAGAS ---");
+        System.out.println("\n\n\n--- SITUACAO DAS VAGAS ---");
 
         for (Vaga vaga : vagas) {
 
             if (vaga.disponivel()) {
 
                 System.out.println(
-                    "Vaga " + vaga.getNumero() + " - Disponivel"
+                    "\nVaga " + vaga.getNumero() + "\n - Disponivel"
                 );
 
             } else {
 
                 System.out.println(
-                    "Vaga " + vaga.getNumero() +
-                    " - Ocupada (" +
+                    "\nVaga " + vaga.getNumero() +
+                    "\n - Ocupada (" +
                     vaga.getVeiculo().getPlaca() + ")"
                 );
             }
@@ -198,7 +196,7 @@ class Estacionamento {
 
     public void veiculos() {
 
-        System.out.println("\n--- VEICULOS ESTACIONADOS ---");
+        System.out.println("\n\n--- VEICULOS ESTACIONADOS ---");
 
         boolean encontrou = false;
 
@@ -208,18 +206,21 @@ class Estacionamento {
 
                 Veiculo v = vaga.getVeiculo();
 
+                System.out.println("-----------------------------------");
+                System.out.println("\nVeiculo");
                 System.out.println("\nPlaca: " + v.getPlaca());
                 System.out.println("Marca: " + v.getMarca());
                 System.out.println("Modelo: " + v.getModelo());
                 System.out.println("Tipo: " + v.getTipo());
                 System.out.println("Vaga: " + vaga.getNumero());
+                System.out.println("-----------------------------------\n");
 
                 encontrou = true;
             }
         }
 
         if (!encontrou) {
-            System.out.println("Nao existem veiculos estacionados.");
+            System.out.println("\n\nNao existem veiculos estacionados.");
         }
     }
 
@@ -243,30 +244,30 @@ class Estacionamento {
 
         if (encontrado == null) {
 
-            System.out.println("Veiculo nao cadastrado!");
+            System.out.println("\nVeiculo nao cadastrado!");
             return;
         }
 
         System.out.println("\n--- DADOS DO VEICULO ---");
 
-        System.out.println("Placa: " + encontrado.getPlaca());
-        System.out.println("Marca: " + encontrado.getMarca());
-        System.out.println("Modelo: " + encontrado.getModelo());
-        System.out.println("Tipo: " + encontrado.getTipo());
+        System.out.println("\nPlaca: " + encontrado.getPlaca());
+        System.out.println("\nMarca: " + encontrado.getMarca());
+        System.out.println("\nModelo: " + encontrado.getModelo());
+        System.out.println("\nTipo: " + encontrado.getTipo());
 
         for (Vaga vaga : vagas) {
 
             if (!vaga.disponivel() &&
                 vaga.getVeiculo().getPlaca().equals(placa)) {
 
-                System.out.println("Situacao: Estacionado");
-                System.out.println("Vaga: " + vaga.getNumero());
+                System.out.println("\nSituacao: Estacionado");
+                System.out.println("\nVaga: " + vaga.getNumero());
 
                 return;
             }
         }
 
-        System.out.println("Situacao: Fora do estacionamento");
+        System.out.println("\nSituacao: Fora do estacionamento");
     }
 
     // --------------------------------------
@@ -279,7 +280,7 @@ class Estacionamento {
 
         if (historico.isEmpty()) {
 
-            System.out.println("Nenhum registro encontrado.");
+            System.out.println("\nNenhum registro encontrado.");
             return;
         }
 
@@ -288,30 +289,30 @@ class Estacionamento {
             System.out.println("\nPlaca: " +
                 registro.getVeiculo().getPlaca());
 
-            System.out.println("Tipo: " +
+            System.out.println("\nTipo: " +
                 registro.getVeiculo().getTipo());
 
-            System.out.println("Vaga: " +
+            System.out.println("\nVaga: " +
                 registro.getVaga().getNumero());
 
-            System.out.println("Entrada: " +
+            System.out.println("\nEntrada: " +
                 registro.getEntrada().format(formato));
 
             if (registro.estaAtivo()) {
 
-                System.out.println("Saida: Veiculo ainda estacionado");
+                System.out.println("\nSaida: Veiculo ainda estacionado");
 
             } else {
 
-                System.out.println("Saida: " +
+                System.out.println("\nSaida: " +
                     registro.getSaida().format(formato));
 
-                System.out.println("Permanencia: " +
-                    registro.getPermanencia() + " minutos");
+                System.out.println("\nPermanencia: " +
+                    registro.getPermanencia() + "\n minutos");
 
                 System.out.printf(
                     Locale.forLanguageTag("pt-BR"),
-                    "Valor pago: R$ %.2f%n",
+                    "\nValor pago: R$ %.2f%n",
                     registro.getValor()
                 );
             }

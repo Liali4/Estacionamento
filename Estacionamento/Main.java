@@ -17,7 +17,7 @@ public static void main(String[] args) {
 
         do {
 
-            System.out.println("\n====================================");
+            System.out.println("\n\n====================================");
             System.out.println("    SISTEMA DE ESTACIONAMENTO");
             System.out.println("====================================");
 
@@ -37,7 +37,7 @@ public static void main(String[] args) {
 
             } catch (NumberFormatException e) {
 
-                System.out.println("Digite uma opcao numerica valida!");
+                System.out.println("\nDigite uma opcao numerica valida!");
                 continue;
             }
 
@@ -49,33 +49,33 @@ public static void main(String[] args) {
 
                 case 1:
 
-                    System.out.println("\n--- ENTRADA DE VEICULO ---");
+                    System.out.println("\n\n--- ENTRADA DE VEICULO ---");
 
-                    System.out.print("Informe a placa: ");
+                    System.out.print("\nInforme a placa: ");
                     String placa = entrada.nextLine().trim();
 
                     if (placa.isEmpty()) {
-                        System.out.println("A placa nao pode ficar vazia!");
+                        System.out.println("\nA placa nao pode ficar vazia!");
                         break;
                     }
 
-                    System.out.print("Informe a marca: ");
+                    System.out.print("\nInforme a marca: ");
                     String marca = entrada.nextLine().trim();
 
-                    System.out.print("Informe o modelo: ");
+                    System.out.print("\nInforme o modelo: ");
                     String modelo = entrada.nextLine().trim();
 
                     if (marca.isEmpty() || modelo.isEmpty()) {
-                        System.out.println("Preencha marca e modelo!");
+                        System.out.println("\nPreencha marca e modelo!");
                         break;
                     }
 
                     System.out.println("\nTipo de veiculo:");
-                    System.out.println("1 - Carro");
-                    System.out.println("2 - Moto");
-                    System.out.println("3 - Caminhonete");
+                    System.out.println("\n1 - Carro");
+                    System.out.println("\n2 - Moto");
+                    System.out.println("\n3 - Caminhonete");
 
-                    System.out.print("Escolha: ");
+                    System.out.print("\nEscolha: ");
 
                     int tipo;
 
@@ -85,7 +85,7 @@ public static void main(String[] args) {
 
                     } catch (NumberFormatException e) {
 
-                        System.out.println("Tipo invalido!");
+                        System.out.println("\nTipo invalido!");
                         break;
                     }
 
@@ -106,7 +106,7 @@ public static void main(String[] args) {
                             break;
 
                         default:
-                            System.out.println("Tipo de veiculo invalido!");
+                            System.out.println("\nTipo de veiculo invalido!");
                     }
 
                     if (veiculo != null) {
@@ -121,9 +121,9 @@ public static void main(String[] args) {
 
                 case 2:
 
-                    System.out.println("\n--- SAIDA DE VEICULO ---");
+                    System.out.println("\n\n--- SAIDA DE VEICULO ---");
 
-                    System.out.print("Informe a placa: ");
+                    System.out.print("\nInforme a placa: ");
 
                     String placaSaida = entrada.nextLine();
 
@@ -157,7 +157,7 @@ public static void main(String[] args) {
 
                 case 5:
 
-                    System.out.print("\nInforme a placa: ");
+                    System.out.print("\n\nInforme a placa: ");
 
                     String placaConsulta = entrada.nextLine();
 
@@ -181,13 +181,13 @@ public static void main(String[] args) {
 
                 case 0:
 
-                    System.out.println("\nEncerrando o sistema...");
+                    System.out.println("\n\nEncerrando o sistema...");
 
                     break;
 
                 default:
 
-                    System.out.println("Opcao invalida!");
+                    System.out.println("\nOpcao invalida!");
             }
 
         } while (opcao != 0);

@@ -2,7 +2,7 @@ public class Vaga {
     private int numero;
     private Veiculo veiculo;
 
-    public Vaga(int numero, Veiculo veiculo){ //metodo construtor vaga
+    public Vaga(int numero){ //metodo construtor vaga
         this.numero = numero;
         this.veiculo = null;
     }
@@ -38,12 +38,12 @@ public class Vaga {
     }
 
     public void liberar(){// liberar vaga, verificar depois
-        if (!disponivel()){
-            System.out.println("Vaga liberada com sucesso!");
+        // if (!disponivel()){
+        //     System.out.println("Vaga liberada com sucesso!");
             this.veiculo=null;
-        }
-        else{
-            System.out.println("Erro, vaga já está livre");
+        // }
+        // else{
+        //     System.out.println("Erro, vaga já está livre");
         }
     }
-}
+
